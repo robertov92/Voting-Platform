@@ -8,7 +8,7 @@ export default function ViewPoll({ match }) {
     const [voted, setVoted] = useState(false)
 
     const fetchPoll = async () => {
-        const response = await fetch(`http://localhost:4000/polls/${match.params.poll}`)
+        const response = await fetch(`http://99.79.69.224:4000/polls/${match.params.poll}`)
 
         const data = await response.json()
 
@@ -32,7 +32,7 @@ export default function ViewPoll({ match }) {
     }, [])
 
     const vote = async (choice) => {
-        await fetch(`http://localhost:4000/polls/${match.params.poll}`, {
+        await fetch(`http://99.79.69.224:4000/polls/${match.params.poll}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

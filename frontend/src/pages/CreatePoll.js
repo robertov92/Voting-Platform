@@ -50,7 +50,7 @@ export default function CreatePoll() {
     }
 
     const createPoll = async () => {
-        const response = await fetch(`http://localhost:4000/polls`, {
+        const response = await fetch(`http://99.79.69.224:4000/polls`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -85,7 +85,7 @@ export default function CreatePoll() {
                   <div className="py-5 px-8">
                       <div className="w-full mb-2 bg-green-100 text-green-500 border border-green-500 rounded py-3 px-2">
                           Poll created successfully. <Link to={`/polls/${success.pollId}`}>
-                              http://localhost:4000/polls/{success.pollId}
+                              http://99.79.69.224:4000/polls/{success.pollId}
                           </Link>
                       </div>
                   </div>
