@@ -14,7 +14,7 @@ export default function Home() {
 
     return (
         <div className='container mx-auto px-5'>
-            <h1 className='text-5xl text-center my-10'>Welcome to Voting Platform</h1>
+            <h1 className='text-5xl text-center my-10'>Welcome to the Voting Platform</h1>
 
             <div className="w-full max-w-3xl mx-auto bg-white shadow">
                     {polls.map(poll => (
@@ -28,4 +28,3 @@ export default function Home() {
         </div>
     )
 }
-

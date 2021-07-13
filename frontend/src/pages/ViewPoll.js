@@ -8,7 +8,7 @@ export default function ViewPoll({ match }) {
     const [voted, setVoted] = useState(false)
 
     const fetchPoll = async () => {
-        const response = await fetch(`http://99.79.69.224:4000/polls/${match.params.poll}`)
+        const response = await fetch(`http://3.97.6.204:4000/polls/${match.params.poll}`)
 
         const data = await response.json()
 
@@ -16,7 +16,7 @@ export default function ViewPoll({ match }) {
     }
 
     const fetchClientIpAddress = async () => {
-        const response = await fetch('https://ipapi.co/json')
+        const response = await fetch('https://api.ipify.org?format=json')
 
         const data = await response.json()
 
@@ -32,7 +32,9 @@ export default function ViewPoll({ match }) {
     }, [])
 
     const vote = async (choice) => {
-        await fetch(`http://99.79.69.224:4000/polls/${match.params.poll}`, {
+        console.log(ip);
+        console.log(choice);
+        await fetch(`http://3.97.6.204:4000/polls/${match.params.poll}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -69,7 +71,7 @@ export default function ViewPoll({ match }) {
     return (
         <div className="container mx-auto mt-16 px-5">
             <h1 className="my-5 text-3xl text-center">
-                Welcome to Polar Voting Platform
+                Welcome to the Voting Platform
             </h1>
 
             {poll ? (
