@@ -28,7 +28,7 @@ const buttonStyle = {
   marginTop: 10
 };
 
-class LoginForm extends Component {
+class RegisterForm extends Component {
 
   handleFormSubmit(e) {
     e.preventDefault();
@@ -41,7 +41,7 @@ class LoginForm extends Component {
     return (
       <div style={divStyle}>
         <Panel style={panelStyle}>
-          <Form horizontal className="LoginForm" id="loginForm">
+          <Form horizontal className="RegisterForm" id="registerForm">
             <FormGroup style={formGroupStyle} controlId="formEmail">
               <FormControl type="email" placeholder="Email Address" />
             </FormGroup>
@@ -50,7 +50,7 @@ class LoginForm extends Component {
             </FormGroup>
             <FormGroup style={buttonStyle} controlId="formSubmit">
               <Button bsStyle="primary" type="submit" onClick={this.handleFormSubmit}>
-                Login
+                Sign Up
               </Button>
             </FormGroup>
           </Form>
@@ -60,4 +60,4 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm;
+export default RegisterForm;
