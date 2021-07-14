@@ -69,11 +69,9 @@ export default function ViewPoll({ match }) {
     }
 
     return (
-        <div className="container mx-auto mt-16 px-5">
-            <h1 className="my-5 text-3xl text-center">
-                Welcome to the Voting Platform
-            </h1>
-
+        <div className="container mx-auto px-5">
+            <h1 className="text-3xl text-center my-10">Welcome to the Voting Platform</h1>
+            <p className='pb-6 text-center'>Please cast your vote, or click on "View Results" to see this poll's statistics.</p>
             {poll ? (
                 <div className="w-full max-w-3xl mx-auto bg-white shadow">
                     <header className='px-5 py-4 flex justify-between items-center'>
@@ -97,6 +95,7 @@ export default function ViewPoll({ match }) {
                     })}
                 </div>
             ) : null}
+            <p className='py-6'>Note: This application detects your public IP address so you can vote only once. We do not use this information in any other way.</p>
         </div>
     )
 }

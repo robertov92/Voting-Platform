@@ -75,11 +75,9 @@ export default function CreatePoll() {
     }
 
     return (
-        <div className="container mx-auto my-16 md:my-32 px-6 ">
+        <div className="container mx-auto px-6 ">
+            <h1 className='text-3xl text-center my-10'>Create a New Poll</h1>
           <div className="w-full max-w-3xl mx-auto rounded shadow-md bg-white">
-              <header className="border-b border-gray-400 px-8 py-5 text-gray-800">
-                Create poll
-              </header>
 
               {success.pollId ? (
                   <div className="py-5 px-8">
@@ -102,12 +100,12 @@ export default function CreatePoll() {
                       </Fragment>
                   ): null}
                   <div className="mb-6">
-                      <label htmlFor="title" className="text-sm mb-2 inline-block">Enter the title of the poll</label>
+                      <label htmlFor="title" className="text-sm mb-2 inline-block">Enter the title of the poll:</label>
                       <input onChange={(event) => setTitle(event.target.value)} value={title}  name='title' id='title' type="text" className='w-full py-2 border border-gray-400 rounded px-4' />
                   </div>
 
                   <div className="mb-3">
-                    <label className="text-sm mb-2 inline-block">Enter all the possible answers for this poll</label>
+                    <label className="text-sm mb-2 inline-block">Enter all the possible answers for this poll:</label>
                     {choices.map((choice, index) => (
                         <div key={index} className="w-full flex items-center mb-2">
                             <input onChange={(event) => onChoiceChange(index, event.target.value)} key={index} type="text" value={choice} className='w-full py-2 border border-gray-400 rounded px-4' />
