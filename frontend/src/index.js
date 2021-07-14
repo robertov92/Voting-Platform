@@ -5,6 +5,7 @@ import { HashRouter, Link, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import ViewPoll from './pages/ViewPoll'
 import CreatePoll from './pages/CreatePoll'
+import LoginPage from './pages/LoginPage/LoginPage';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,6 +15,7 @@ ReactDOM.render(
             <div className="container mx-auto px-5">
               <Link to='/' className='text-white cursor-pointer hover:text-gray-400 transition duration-150 mr-3'>Home</Link>
               <Link to='/polls/create' className='text-white cursor-pointer hover:text-gray-400 transition duration-150 mr-3'>Create Poll</Link>
+              <Link to='/login' className='text-white cursor-pointer hover:text-gray-400 transition duration-150 mr-3'>Login</Link>
             </div>
         </div>
 
@@ -21,6 +23,7 @@ ReactDOM.render(
           <Route exact path='/' component={Home} />
           <Route path='/polls/create' component={CreatePoll} />
           <Route path='/polls/:poll' component={ViewPoll} />
+          <Route path='/login' component={LoginPage} />
         </Switch>
       </div>
     </HashRouter>
