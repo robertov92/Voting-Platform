@@ -83,9 +83,10 @@ export default function CreatePoll() {
 
               {success.pollId ? (
                   <div className="py-5 px-8">
+                      <p className="text-gray-800 py-3">Poll created successfully! Click on the link to see your poll, or copy it to share it with others!</p>
                       <div className="w-full mb-2 bg-green-100 text-green-500 border border-green-500 rounded py-3 px-2">
-                          Poll created successfully. <Link to={`/polls/${success.pollId}`}>
-                              {process.env.REACT_APP_APP_URL}/polls/{success.pollId}
+                          <Link to={`/polls/${success.pollId}`}>
+                          http://3.97.6.204/#/polls/{success.pollId}
                           </Link>
                       </div>
                   </div>
