@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
-import { Panel } from 'rsuite';
+import { FlexboxGrid, Panel } from 'rsuite';
 
 const divStyle = {
   display: 'flex',
@@ -9,16 +9,22 @@ const divStyle = {
 };
 
 const panelStyle = {
-  // backgroundColor: 'rgba(255,255,255,0.5)',
-  backgroundColor: 'rgba(255,255,255,0.5)',
-  border: 0,
-  paddingLeft: 20,
-  paddingRight: 20,
-  width: 300,
+  border: '1px solid black',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: 250,
+  height: 150
+};
+
+const formGroupStyle = {
+  paddingTop: 5,
+  paddingBottom: 5
 };
 
 const buttonStyle = {
-  marginBottom: 0
+  display: 'flex',
+  justifyContent: 'center'
 };
 
 class LoginForm extends Component {
@@ -35,10 +41,10 @@ class LoginForm extends Component {
       <div style={divStyle}>
         <Panel style={panelStyle}>
           <Form horizontal className="LoginForm" id="loginForm">
-            <FormGroup controlId="formEmail">
+            <FormGroup style={formGroupStyle} controlId="formEmail">
               <FormControl type="email" placeholder="Email Address" />
             </FormGroup>
-            <FormGroup controlId="formPassword">
+            <FormGroup style={formGroupStyle} controlId="formPassword">
               <FormControl type="password" placeholder="Password" />
             </FormGroup>
             <FormGroup style={buttonStyle} controlId="formSubmit">
