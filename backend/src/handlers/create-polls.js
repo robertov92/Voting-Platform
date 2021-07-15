@@ -4,6 +4,7 @@ module.exports = db => {
     return async(request, response) => {
         const data = {
             _id: v4(),
+            userId: request.body.userId,
             title: request.body.title,
             choices: request.body.choices.map(choice => ({
                 name: choice,
