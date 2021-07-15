@@ -1,7 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import React, { useState, Fragment } from 'react'
 
+import NavBar from '../components/NavBar';
+
 export default function CreatePoll() {
+    let history = useHistory()
+    if (!localStorage.getItem("userId")) {
+        history.push('/signup')
+    }
     const [title, setTitle] = useState('')
     const [choices, setChoices] = useState([''])
     const [errors, setErrors] = useState([])
@@ -33,7 +39,7 @@ export default function CreatePoll() {
 
         setChoices(newChoices)
     }
-
+/*  I dont want to use localStorage to save the polls anymore
     const updatePollsToLocalStorage = (successData) => {
         const existingPolls = JSON.parse(localStorage.getItem('polls')) || []
 
@@ -47,17 +53,20 @@ export default function CreatePoll() {
 
         localStorage.setItem('polls', 
         JSON.stringify(updatedPolls))
-    }
+    }*/
 
     const createPoll = async () => {
         const response = await fetch(`http://3.97.6.204:4000/polls`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': localStorage.getItem("token")
             },
             body: JSON.stringify({
+                userId : localStorage.getItem("userId"),
                 title,
                 choices
+                
             })
         })
 
@@ -71,10 +80,12 @@ export default function CreatePoll() {
         }
 
         setSuccess(data)
-        updatePollsToLocalStorage(data)
+        //updatePollsToLocalStorage(data)
     }
 
     return (
+        <>
+        <NavBar />
         <div className="container mx-auto px-6 ">
             <h1 className='text-3xl text-center my-10'>Create a New Poll</h1>
           <div className="w-full max-w-3xl mx-auto rounded shadow-md bg-white">
@@ -91,7 +102,7 @@ export default function CreatePoll() {
               ) : null}
 
               {!success.pollId ? (
-                  <div className="py-5 px-8">
+                <div className="py-5 px-8">
                   {errors.length > 0 ? (
                       <Fragment>
                           {errors.map((error, index) => (
@@ -119,9 +130,10 @@ export default function CreatePoll() {
                   <div className="mt-12 mb-6 text-center">
                     <button onClick={createPoll} className='bg-blue-600 text-white px-3 py-2 border border-blue-600 active:border-blue-700 text-sm rounded-sm hover:bg-blue-700 transition duration-150 ease-in-out'>Create Poll</button>
                   </div>
-              </div>
+                </div>
               ) : null}
           </div>
        </div>
+       </>
     )
 }
