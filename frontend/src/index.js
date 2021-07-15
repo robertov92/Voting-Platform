@@ -1,36 +1,45 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter, Link, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Link, Switch, Route } from 'react-router-dom';
+import {Appbar, Avatar, Toolbar, Typography, Button } from '@material-ui/core'
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+
 
 import Home from './pages/Home';
 import ViewPoll from './pages/ViewPoll'
 import CreatePoll from './pages/CreatePoll'
-import LoginPage from './pages/LoginPage/LoginPage';
-import RegisterPage from './pages/RegisterPage/RegisterPage';
+import NavBar from './components/NavBar';
+import Login from './pages/Login'
+import SignUp from './pages/SignUp'
+import { reducers } from './reducer';
+import thunk from 'redux-thunk';
+
+
+
+const store = createStore(reducers, compose(applyMiddleware(thunk)));
 
 ReactDOM.render(
+  <Provider store={store}>
   <React.StrictMode>
-    <HashRouter>
+    <BrowserRouter>
       <div className="w-full h-screen">
         <div className="h-16 w-full bg-gray-800 flex items-center">
-            <div className="container mx-auto px-5">
-              <Link to='/' className='text-white cursor-pointer hover:text-gray-400 transition duration-150 mr-3'>Home</Link>
-              <Link to='/polls/create' className='text-white cursor-pointer hover:text-gray-400 transition duration-150 mr-3'>Create Poll</Link>
-              <Link to='/login' className='text-white cursor-pointer hover:text-gray-400 transition duration-150 mr-3 float-right'>Login</Link>
-              <Link to='/register' className='text-white cursor-pointer hover:text-gray-400 transition duration-150 mr-3 float-right'>Register</Link>
-            </div>
+            <NavBar/>
         </div>
 
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/polls/create' component={CreatePoll} />
+          <Route path='/login' component={Login} />
+          <Route path='/polls/signup' component={SignUp} />
           <Route path='/polls/:poll' component={ViewPoll} />
-          <Route path='/login' component={LoginPage} />
-          <Route path='/register' component={RegisterPage} />
-
+          
+          
         </Switch>
       </div>
-    </HashRouter>
-  </React.StrictMode>,
+    </BrowserRouter>
+  </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );

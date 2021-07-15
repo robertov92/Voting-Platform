@@ -1,8 +1,11 @@
 const express = require('express');
+
+
 const setupRedis = require('./setup/redis');
 const setupRouter = require('./setup/router');
 const setupMiddleware = require('./setup/middleware');
 const setupDatabase = require('./setup/database');
+
 
 const app = express();
 
