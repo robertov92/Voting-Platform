@@ -110,14 +110,13 @@ export default function ViewPoll({ match }) {
             <p className='pt-6 text-center'>Note 1: This application detects your public IP address so you can vote only once. We do not use this information in any other way.</p>
             <p className='pt-3 text-center'>Note 2: This application may not work if you are using an AddBlocker. Open it in an Incognito Window or change to a different browser.</p>
 
-            <div className='px-5 py-4 border-t border-gray-400 flex justify-between content-center'>
+            <div className='flex justify-between content-center mx-5'>
                 {voted ? (
-                    <span>
+                    <span className='mx-auto my-10'>
                         {ShowChart()}
                     </span>
                 ) : null}
             </div>
-            <p className='py-6'>Note: This application detects your public IP address so you can vote only once. We do not use this information in any other way.</p>
 
         </div>
         </>
