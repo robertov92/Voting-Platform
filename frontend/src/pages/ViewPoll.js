@@ -76,14 +76,6 @@ export default function ViewPoll({ match }) {
             console.log("here is voteData: ", voteData)
         }
 
-        // let sampleVoteData = [
-        //     ['Task', 'Hours per Day'],
-        //     ['Work', 11],
-        //     ['Eat', 2],
-        //     ['Commute', 2],
-        //     ['Watch TV', 2],
-        //     ['Sleep', 7],
-        //   ]
         return (
             <Chart chartType="PieChart"
                 options={{ title: poll.title }}
