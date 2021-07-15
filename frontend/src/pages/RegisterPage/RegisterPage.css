@@ -1,0 +1,8 @@
+.RegisterPage {
+  min-height: 100%;
+  min-height: 55vh;
+  display: flex;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+}

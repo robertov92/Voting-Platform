@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-
 import NavBar from '../components/NavBar';
+import Chart from "react-google-charts";
 import Button from '../components/Button'
 
 export default function ViewPoll({ match }) {
@@ -60,6 +60,25 @@ export default function ViewPoll({ match }) {
         }
         return Math.round((selectedChoice.count / totalVotes) * 100)
     }
+    
+    const ShowChart = () => {
+        console.log(poll)
+
+        let voteData = [['Option', 'Number of votes']]
+        for (let i = 0; i < poll.choices.length; i ++) {
+            voteData.push([poll.choices[i].name, poll.choices[i].count])
+            console.log("here is voteData: ", voteData)
+        }
+
+        return (
+            <Chart chartType="PieChart"
+                options={{ title: poll.title }}
+                graph_id={"PollPieChart"}
+                width="400px" height="400px"
+                data={voteData}
+                legend_toggle />
+        );
+    }
 
     return (
         <>
@@ -87,8 +106,19 @@ export default function ViewPoll({ match }) {
                     })}
                 </div>
             ) : null}
+
             <p className='pt-6 text-center'>Note 1: This application detects your public IP address so you can vote only once. We do not use this information in any other way.</p>
             <p className='pt-3 text-center'>Note 2: This application may not work if you are using an AddBlocker. Open it in an Incognito Window or change to a different browser.</p>
+
+            <div className='px-5 py-4 border-t border-gray-400 flex justify-between content-center'>
+                {voted ? (
+                    <span>
+                        {ShowChart()}
+                    </span>
+                ) : null}
+            </div>
+            <p className='py-6'>Note: This application detects your public IP address so you can vote only once. We do not use this information in any other way.</p>
+
         </div>
         </>
     )
