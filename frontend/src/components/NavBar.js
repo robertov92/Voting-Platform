@@ -13,16 +13,16 @@ export default function NavBar() {
     <div className="container mx-auto px-5">
       { localStorage.getItem("userId") ?
         <>
-        <Link to='/' className='text-white cursor-pointer hover:text-gray-400 transition duration-150 mx-5'>Home</Link>
-        <Link to='/polls/create' className='text-white cursor-pointer hover:text-gray-400 transition duration-150 mx-5'>Create Poll</Link>
+        <Link to='/' className='text-white cursor-pointer hover:text-gray-400 transition duration-150 ml-3'>Home</Link>
+        <Link to='/polls/create' className='text-white cursor-pointer hover:text-gray-400 transition duration-150 ml-3'>Create Poll</Link>
         </> : null
       }
     </div>
     <div className="container mx-auto px-5 text-right">
       { !localStorage.getItem("userId") ?
         <>
-        <Link to='/login' className='text-white cursor-pointer hover:text-gray-400 transition duration-150 mx-5'>Login</Link>
-        <Link to='/signup' className='text-white cursor-pointer hover:text-gray-400 transition duration-150 mx-5'>SignUp</Link>
+        <Link to='/login' className='text-white cursor-pointer hover:text-gray-400 transition duration-150 mr-3'>Login</Link>
+        <Link to='/signup' className='text-white cursor-pointer hover:text-gray-400 transition duration-150 mr-3'>SignUp</Link>
         </>
         :
         <button className='text-white cursor-pointer hover:text-gray-400 transition duration-150 mx-5' onClick={() => logout()}>Logout</button>
