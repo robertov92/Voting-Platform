@@ -40,8 +40,8 @@ export default function Login() {
   return (
     <>
     <NavBar />
-    <div className="container mx-auto px-6 ">
-      <h1 className='text-3xl text-center my-10'>Login</h1>
+    <div className="container mx-auto px-6">
+      <h1 className='text-5xl font-bold text-gray-800 text-center my-10'>Login</h1>
       {errors.length > 0 ? (
         <Fragment>
             {errors.map((error, index) => (
@@ -49,18 +49,18 @@ export default function Login() {
             ))}
         </Fragment>
       ): null}
-      <div className="w-full max-w-3xl mx-auto rounded shadow-md bg-white">
+      <div className="w-full max-w-3xl mx-auto rounded shadow-md bg-gradient-to-r from-blue-100 to-white">
         <div className="py-5 px-8">
           <div className="mb-6">
             <label htmlFor="email" className="text-sm mb-2 inline-block">Email:</label>
-            <input onChange={event => setEmail(event.target.value)} value={email} name='email' id='email' type="email" className='w-full py-2 border border-gray-400 rounded px-4' />
+            <input placeholder="Enter your email" onChange={event => setEmail(event.target.value)} value={email} name='email' id='email' type="email" className='w-full py-2 border border-gray-400 rounded px-4' />
           </div>
           <div className="mb-3">
             <label htmlFor="password" className="text-sm mb-2 inline-block">Password:</label>
-            <input onChange={event => setPassword(event.target.value)} value={password} name='password' id='password' type="password" className='w-full py-2 border border-gray-400 rounded px-4' />
+            <input placeholder="Enter your password" onChange={event => setPassword(event.target.value)} value={password} name='password' id='password' type="password" className='w-full py-2 border border-gray-400 rounded px-4' />
           </div>
           <div className="mt-12 mb-6 text-center">
-            <button onClick={login} className='bg-blue-600 text-white px-3 py-2 border border-blue-600 active:border-blue-700 text-sm rounded-sm hover:bg-blue-700 transition duration-150 ease-in-out'>Login</button>
+            <button onClick={login} className='bg-blue-600 text-white font-bold rounded py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out'>Login</button>
           </div>
         </div>
       </div>

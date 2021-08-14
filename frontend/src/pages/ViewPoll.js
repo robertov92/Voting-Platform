@@ -74,7 +74,7 @@ export default function ViewPoll({ match }) {
             <Chart chartType="PieChart"
                 options={{ title: poll.title }}
                 graph_id={"PollPieChart"}
-                width="400px" height="400px"
+                width="320px" height="320px"
                 data={voteData}
                 legend_toggle />
         );
@@ -84,10 +84,10 @@ export default function ViewPoll({ match }) {
         <>
         <NavBar />
         <div className="container mx-auto px-5">
-            <h1 className="text-3xl text-center my-10">Welcome to the Voting Platform</h1>
+            <h1 className="text-3xl text-center my-3 font-bold text-gray-800">Welcome to the Simplest Voting App</h1>
             <p className='pb-6 text-center'>Please cast your vote, or click on "View Results" to see this poll's statistics.</p>
             {poll ? (
-                <div className="w-full max-w-3xl mx-auto bg-white shadow">
+                <div className="w-full max-w-3xl mx-auto  bg-gradient-to-r from-blue-100 to-white shadow">
                     <header className='px-5 py-4 flex justify-between items-center'>
                         {poll.title}
                         {voted && <span>{getTotalVotes()} votes</span>}
@@ -106,18 +106,17 @@ export default function ViewPoll({ match }) {
                     })}
                 </div>
             ) : null}
-
-            <p className='pt-6 text-center'>Note 1: This application detects your public IP address so you can vote only once. We do not use this information in any other way.</p>
-            <p className='pt-3 text-center'>Note 2: This application may not work if you are using an AddBlocker. Open it in an Incognito Window or change to a different browser.</p>
-
-            <div className='flex justify-between content-center mx-5'>
-                {voted ? (
-                    <span className='mx-auto my-10'>
-                        {ShowChart()}
-                    </span>
-                ) : null}
-            </div>
-
+        </div>
+        <div className='flex justify-between content-center'>
+            {voted ? (
+                <span className='mx-auto my-10 max-w-full'>
+                    {ShowChart()}
+                </span>
+            ) : null}
+        </div>
+        <div className='container mx-auto px-5'>
+        <p className='pt-6 text-center'>Note 1: This application detects your public IP address so you can vote only once. We do not use this information in any other way.</p>
+        <p className='pt-3 pb-10 text-center'>Note 2: This application may not work if you are using an AddBlocker. If that's the case open this page in an Incognito Window or change to a different browser.</p>
         </div>
         </>
     )

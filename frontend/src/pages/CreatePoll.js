@@ -87,8 +87,8 @@ export default function CreatePoll() {
         <>
         <NavBar />
         <div className="container mx-auto px-6 ">
-            <h1 className='text-3xl text-center my-10'>Create a New Poll</h1>
-          <div className="w-full max-w-3xl mx-auto rounded shadow-md bg-white">
+            <h1 className='text-5xl font-bold text-gray-800 text-center my-10'>Create a Poll</h1>
+          <div className="w-full max-w-3xl mx-auto rounded shadow-md bg-gradient-to-r from-blue-100 to-white">
 
               {success.pollId ? (
                   <div className="py-5 px-8">
@@ -128,7 +128,7 @@ export default function CreatePoll() {
                   <button onClick={addAnswer} className='bg-blue-600 text-white px-3 py-2 border border-blue-600 active:border-blue-700 text-sm rounded-sm hover:bg-blue-700 transition duration-150 ease-in-out'>Add choice</button>
 
                   <div className="mt-12 mb-6 text-center">
-                    <button onClick={createPoll} className='bg-blue-600 text-white px-3 py-2 border border-blue-600 active:border-blue-700 text-sm rounded-sm hover:bg-blue-700 transition duration-150 ease-in-out'>Create Poll</button>
+                    <button onClick={createPoll} className='bg-blue-600 text-white font-bold rounded py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out'>Create Poll</button>
                   </div>
                 </div>
               ) : null}
