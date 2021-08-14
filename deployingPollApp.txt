@@ -1,8 +1,0 @@
-test with
-http://3.97.6.204:4000/polls/0fdadd75-55f9-4325-8b2d-088b1d05189a
-
-start redis server on background
-redis-server --daemonize yes
-
-check (might not work)
-ps aux | grep redis-server
