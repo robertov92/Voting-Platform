@@ -8,12 +8,14 @@ import CreatePoll from './pages/CreatePoll';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import HomeLogout from './pages/HomeLogout'
+import Footer from './components/Footer'
 
 
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
-      <div className="w-full min-h-screen bg-gradient-to-r from-white to-blue-300">
+      <div className='min-h-screen  bg-gradient-to-r from-white to-blue-300 relative'>
+      <div className="w-full pb-32">
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/homelg' component={HomeLogout} />
@@ -22,6 +24,8 @@ ReactDOM.render(
           <Route path='/login' component={Login} />
           <Route path='/signup' component={SignUp} />
         </Switch>
+      </div>
+      <Footer />
       </div>
     </HashRouter>
   </React.StrictMode>,
